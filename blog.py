@@ -17,17 +17,22 @@ else:
 app = App(__name__)
 nameblog = "My Blog"
 @app.route('/form')
-def a():
-    simple_form = Form({
-        'topic' : Field(),
-        'text' : Field('text'),
-        'name': Field(),
-        'email': Field(),
-    })
-    if simple_form.accepted:
-        inserted_number = form.params.number
-        #do something
-    return dict(form=simple_form)
+class User(Model):
+    name = Field('string')
+    has_many('posts')
+
+    validation = {
+        'email': {'is': 'email'}
+    }
+
+class Post(Model):
+    belongs_to('user')
+    body = Field('text')
+
+    validation = {
+        'body': {'presence': True}
+    }
+          
 @app.route("/")
 def hello():
     return """hi
