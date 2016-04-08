@@ -1,11 +1,11 @@
 import pip
 try:
-    from weppy import App
+    from weppy import App,Field, Form
     from pydblite import Base
 except:
     pip.main(['install','weppy'])
     pip.main(['install','pydblite'])
-    from weppy import App
+    from weppy import App,Field, Form
     from pydblite import Base
 import os
 if (not os.path.isfile("db.pydb")):
@@ -16,6 +16,10 @@ else:
     db = Base('db.pydb')
 app = App(__name__)
 nameblog = "My Blog"
+@app.route("/sent")
+@app.route("/add")
+def add():
+    return ""
 @app.route("/")
 def hello():
     return """<html>
