@@ -18,7 +18,7 @@ app = App(__name__)
 nameblog = "My Blog"
 @app.route('/form')
 def a():
-    simple_form = Post.Form({
+    simple_form = Form({
         'topic' : Field(),
         'text' : Field('text'),
         'name': Field(),
