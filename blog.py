@@ -10,7 +10,7 @@ except:
 import os
 if (not os.path.isfile("db.pydb")):
     db = Base('db.pydb') # สร้างไฟล์ฐานข้อมูล test.pydb
-    db.create('topic','text','name', 'date','email') # สร้าง field เก็บข้อมูล
+    db.create('topic','text','name','email') # สร้าง field เก็บข้อมูล
     print("install ok")
 else:
     db = Base('db.pydb')
@@ -18,11 +18,11 @@ app = App(__name__)
 nameblog = "My Blog"
 @app.route('/form')
 def a():
-    simple_form = Form({
+    simple_form = Post.Form({
+        'topic' : Field(),
+        'text' : Field(),
         'name': Field(),
-        'number': Field('int'),
-        'type': Field(
-            validation={'in': ['type1', 'type2']}
+        'email': Field(),
         )
     })
     if simple_form.accepted:
