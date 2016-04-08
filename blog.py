@@ -1,12 +1,20 @@
 import pip
 try:
-    from weppy import App,Field, Form
+    from weppy import App,Field, Form,request, session, url, redirect, abort
+    from weppy.dal import DAL, Field, Model, belongs_to, has_many
+    from weppy.tools import requires
+    from weppy.tools.auth import Auth, AuthUser
+    from weppy.sessions import SessionCookieManager
     #from weppy.dal import Field, Model
     from pydblite import Base
 except:
     pip.main(['install','weppy'])
     pip.main(['install','pydblite'])
-    from weppy import App,Field, Form
+    from weppy import App,Field, Form,request, session, url, redirect, abort
+    from weppy.dal import DAL, Field, Model, belongs_to, has_many
+    from weppy.tools import requires
+    from weppy.tools.auth import Auth, AuthUser
+    from weppy.sessions import SessionCookieManager
     #from weppy.dal import Field, Model
     from pydblite import Base
 import os
