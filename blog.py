@@ -10,15 +10,19 @@ except:
 import os
 if (not os.path.isfile("db.pydb")):
     db = Base('db.pydb') # สร้างไฟล์ฐานข้อมูล test.pydb
-    db.create('topic','text','name', 'date') # สร้าง field เก็บข้อมูล
+    db.create('topic','text','name', 'date','email') # สร้าง field เก็บข้อมูล
     print("install ok")
 else:
     db = Base('db.pydb')
 app = App(__name__)
-
+nameblog = "My Blog"
 @app.route("/")
 def hello():
-    return "Hello world!"
+    return """<html>
+    
+    
+    
+    """
 
 if __name__ == "__main__":
     app.run()
