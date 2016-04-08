@@ -23,7 +23,6 @@ def a():
         'text' : Field('text'),
         'name': Field(),
         'email': Field(),
-        )
     })
     if simple_form.accepted:
         inserted_number = form.params.number
