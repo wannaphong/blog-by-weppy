@@ -1,13 +1,13 @@
 import pip
 try:
     from weppy import App,Field, Form
-    from weppy.dal import Field, Model
+    #from weppy.dal import Field, Model
     from pydblite import Base
 except:
     pip.main(['install','weppy'])
     pip.main(['install','pydblite'])
     from weppy import App,Field, Form
-    from weppy.dal import Field, Model
+    #from weppy.dal import Field, Model
     from pydblite import Base
 import os
 if (not os.path.isfile("db.pydb")):
