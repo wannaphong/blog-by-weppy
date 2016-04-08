@@ -14,9 +14,6 @@ if (not os.path.isfile("db.pydb")):
     print("install ok")
 else:
     db = Base('db.pydb')
-
-db = Base('db.pydb') # สร้างไฟล์ฐานข้อมูล test.pydb
-db.create('name', 'age', 'size') # สร้าง field เก็บข้อมูล
 app = App(__name__)
 
 @app.route("/")
