@@ -16,13 +16,22 @@ else:
     db = Base('db.pydb')
 app = App(__name__)
 nameblog = "My Blog"
-@app.route("/sent")
-@app.route("/add")
-def add():
-    return ""
+@app.route('/form')
+def a():
+    simple_form = Form({
+        'name': Field(),
+        'number': Field('int'),
+        'type': Field(
+            validation={'in': ['type1', 'type2']}
+        )
+    })
+    if simple_form.accepted:
+        inserted_number = form.params.number
+        #do something
+    return dict(form=simple_form)
 @app.route("/")
 def hello():
-    return """<html>
+    return """hi
     
     
     
