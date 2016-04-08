@@ -20,7 +20,7 @@ nameblog = "My Blog"
 def a():
     simple_form = Post.Form({
         'topic' : Field(),
-        'text' : Field(),
+        'text' : Field('text'),
         'name': Field(),
         'email': Field(),
         )
